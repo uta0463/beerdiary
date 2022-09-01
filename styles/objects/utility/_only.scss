@@ -1,0 +1,18 @@
+@use "../../global/index" as g;
+
+.u__only--pc {
+
+  display: block !important;
+
+  @include g.mq('tb') {
+    display: none !important;
+  }
+}
+
+.u__only--tb {
+  display: none !important;
+
+  @include g.mq('tb') {
+    display: block !important;
+  }
+}

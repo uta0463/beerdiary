@@ -1,0 +1,57 @@
+@use "../../global/index" as g;
+
+.u__tag {
+  &>a {
+
+    &.u__tag__item {
+      transition: g.$opacity;
+
+      //hover
+      &:hover {
+        opacity: .8;
+      }
+    }
+  }
+
+  @include g.mq('tb') {
+    &>a {
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.u__tag__item {
+  margin: 7px 5px 0 0;
+  padding: 3px 8px;
+  color: g.$col-white;
+  font-size: 1.2rem;
+  border-radius: g.$radius-base;
+  background-color: g.$col-darkGray;
+  display: inline-block;
+}
+
+.u__tag__list {
+
+  li {
+    margin-top: 5px;
+    margin-right: 20px;
+    display: inline-block;
+
+    .u__tag__item {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+  }
+
+  @include g.mq('tb') {
+    li {
+      margin-top: 10px;
+
+      .u__tag__item {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

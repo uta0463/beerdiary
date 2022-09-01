@@ -1,0 +1,11 @@
+@use "../../global/index" as g;
+
+.u__heading {
+  font-size: 2.4rem;
+  font-weight: g.$fw-regular;
+  text-align: center;
+
+  @include g.mq('tb') {
+    font-size: 2.2rem;
+  }
+}

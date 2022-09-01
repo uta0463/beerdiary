@@ -1,0 +1,5 @@
+@use "../global/index" as g;
+
+.l__main {
+  @include g.mq('tb') {}
+}

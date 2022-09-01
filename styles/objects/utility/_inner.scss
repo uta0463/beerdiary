@@ -1,0 +1,17 @@
+@use "../../global/index" as g;
+
+.u__inner {
+  max-width: g.$base-column;
+  margin: 0 auto;
+  padding: 0 g.$sp-space;
+  box-sizing: content-box;
+
+  @include g.mq('tb') {
+    box-sizing: border-box;
+  }
+}
+
+.u__inner__contents {
+  max-width: 750px;
+  margin: 0 auto;
+}

@@ -1,0 +1,268 @@
+@use "../../global/index" as g;
+
+.p__page {}
+
+.p__page__container {
+  padding: 80px 0;
+
+  @include g.mq('tb') {
+    padding: 50px 0;
+  }
+}
+
+.p__page__head {
+  margin-bottom: 40px;
+
+  @include g.mq('tb') {
+    margin-bottom: 20px;
+  }
+}
+
+.p__page__body {}
+
+.p__page__date {
+  margin-bottom: 20px;
+
+  @include g.mq('tb') {
+    margin-bottom: 10px;
+  }
+}
+
+.p__page__title {
+  margin-bottom: 23px;
+  font-size: 2.8rem;
+
+  @include g.mq('tb') {
+    margin-bottom: 15px;
+    font-size: 2.2rem;
+  }
+}
+
+.p__page__posts {
+  padding: 80px 0;
+
+  @include g.mq('tb') {
+    padding: 50px 0;
+  }
+}
+
+.p__page__posts__btn {
+  @include g.mq('tb') {
+    margin-top: 50px;
+  }
+}
+
+.p__page__tag {}
+
+
+.p__page__main {
+  margin-bottom: 40px;
+
+  @include g.mq('tb') {
+    margin-bottom: 20px;
+  }
+}
+
+.p__page__btn {
+  margin-top: 60px;
+
+  @include g.mq('tb') {
+    margin-top: 50px;
+  }
+}
+
+.p__page__tags {
+  padding: 54px 0 60px;
+  background-color: g.$col-lightGray;
+
+  @include g.mq('tb') {
+    padding: 44.5px 0 50px
+  }
+}
+
+.p__page__tags__head {
+  margin-bottom: 35px;
+
+  @include g.mq('tb') {
+    margin-bottom: 24.5px;
+  }
+}
+
+.p__page__tags__body {}
+
+
+
+.p__page__free {
+
+  p {
+    line-height: g.$lh-wide;
+
+    &+p {
+      margin-top: 1em;
+    }
+
+    &+h2 {
+      margin-top: 60px;
+    }
+
+    &+h3,
+    &+h4,
+    &+ul,
+    &+img {
+      margin-top: 30px;
+    }
+  }
+
+  h2 {
+    font-size: 2rem;
+
+    &+p,
+    &+h3,
+    &+h4,
+    &+ul,
+    &+img {
+      margin-top: 30px;
+    }
+  }
+
+  h3 {
+    font-size: 1.8rem;
+
+    &+h2 {
+      margin-top: 60px;
+    }
+
+    &+p,
+    &+h3,
+    &+h4,
+    &+ul,
+    &+img {
+      margin-top: 30px;
+    }
+  }
+
+  h4 {
+    font-size: 1.6rem;
+
+    &+h2 {
+      margin-top: 60px;
+    }
+
+    &+p,
+    &+h3,
+    &+h4,
+    &+ul,
+    &+img {
+      margin-top: 30px;
+    }
+  }
+
+  ul {
+
+    li {
+      position: relative;
+      padding-left: 16px;
+
+      &+li {
+        margin-top: 8px;
+      }
+
+      &::before {
+        position: absolute;
+        top: 8px;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        background-color: g.$col-blue;
+        border-radius: 50%;
+        content: "";
+      }
+    }
+
+    &+h2 {
+      margin-top: 60px;
+    }
+
+    &+p,
+    &+h3,
+    &+h4,
+    &+ul,
+    &+img {
+      margin-top: 30px;
+    }
+  }
+
+  @include g.mq('tb') {
+    p {
+      font-size: 1.4rem;
+      line-height: 1.8;
+
+      &+h2 {
+        margin-top: 40px;
+      }
+    }
+
+    h2 {
+      font-size: 1.8rem;
+
+      &+h2 {
+        margin-top: 40px;
+      }
+
+      &+p,
+      &+h3,
+      &+h4,
+      &+ul,
+      &+img {
+        margin-top: 20px;
+      }
+    }
+
+    h3 {
+      font-size: 1.6rem;
+
+      &+h2 {
+        margin-top: 40px;
+      }
+
+      &+p,
+      &+h3,
+      &+h4,
+      &+ul,
+      &+img {
+        margin-top: 20px;
+      }
+    }
+
+    h4 {
+      font-size: 1.5rem;
+
+      &+h2 {
+        margin-top: 40px;
+      }
+
+      &+p,
+      &+h3,
+      &+h4,
+      &+ul,
+      &+img {
+        margin-top: 20px;
+      }
+    }
+
+    ul {
+
+      &+h2 {
+        margin-top: 40px;
+      }
+
+      &+p,
+      &+h3,
+      &+h4,
+      &+ul,
+      &+img {
+        margin-top: 20px;
+      }
+    }
+  }
+}

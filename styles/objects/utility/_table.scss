@@ -1,0 +1,337 @@
+@use "../../global/index" as g;
+
+// .u__table {
+
+//   table {
+//     width: 100%;
+//     border-collapse: collapse;
+//     border-spacing: 0;
+//     border-top: solid 1px #e5e5e5;
+//     border-left: solid 1px #e5e5e5;
+
+//     thead {
+//       th {
+//         background-color: #ececec;
+//       }
+//     }
+
+//     th,
+//     td {
+//       width: 25%;
+//       padding: 14.5px 20px;
+//       line-height: 1.8;
+//       text-align: left;
+//       border-right: solid 1px #e5e5e5;
+//       border-bottom: solid 1px #e5e5e5;
+
+//       &.center {
+//         text-align: center;
+//       }
+
+//       &.v-center {
+//         vertical-align: center;
+//       }
+//     }
+
+//     th {
+//       color: g.$col-black;
+//       font-weight: g.$fw-bold;
+//       background-color: #f5f5f5;
+//     }
+
+//     td {}
+//   }
+
+//   @include g.mq('tb') {
+//     table {
+
+//       th,
+//       td {
+//         padding: 12px 17.5px;
+//       }
+//     }
+
+//     &.scroll {
+//       padding-bottom: 37.5px;
+//       overflow: auto;
+
+//       &::-webkit-scrollbar {
+//         height: 4px;
+//         display: block !important;
+//       }
+
+//       &::-webkit-scrollbar-track {
+//         // background: g.$col-offWhite;
+//       }
+
+//       &::-webkit-scrollbar-thumb {
+//         // background: g.$col-brown;
+//       }
+
+//       table {
+//         min-width: 700px;
+//       }
+//     }
+//   }
+// }
+
+// .wp-block-table {
+
+//   table {
+//     width: 100%;
+//     border-collapse: collapse;
+//     border-spacing: 0;
+//     border-top: solid 1px #e5e5e5;
+//     border-left: solid 1px #e5e5e5;
+
+//     thead {
+//       th {
+//         background-color: #ececec;
+//       }
+//     }
+
+//     th,
+//     td {
+//       width: 25%;
+//       padding: 14.5px 20px;
+//       line-height: 1.8;
+//       text-align: left;
+//       border-right: solid 1px #e5e5e5;
+//       border-bottom: solid 1px #e5e5e5;
+
+//       &.center {
+//         text-align: center;
+//       }
+
+//       &.v-center {
+//         vertical-align: center;
+//       }
+//     }
+
+//     th {
+//       color: g.$col-black;
+//       font-weight: g.$fw-bold;
+//       background-color: #f5f5f5;
+//     }
+
+//     td {}
+//   }
+
+//   @include g.mq('tb') {
+//     padding-bottom: 37.5px;
+//     overflow: auto;
+
+//     &::-webkit-scrollbar {
+//       height: 4px;
+//       display: block !important;
+//     }
+
+//     &::-webkit-scrollbar-track {
+//       // background: g.$col-offWhite;
+//     }
+
+//     &::-webkit-scrollbar-thumb {
+//       // background: g.$col-brown;
+//     }
+
+//     table {
+//       min-width: 700px;
+
+//       th,
+//       td {
+//         padding: 12px 17.5px;
+//       }
+//     }
+//   }
+// }
+
+.u__table {
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    thead {
+      tr {
+        th {
+          padding: 42px 10px;
+          color: g.$col-white;
+          font-family: g.$ff-baseBold;
+          font-size: 1.8rem;
+          font-weight: g.$fw-bold;
+          text-align: center;
+          background-color: g.$col-black;
+
+          &+th {
+            border-left: solid 1px g.$col-white;
+          }
+
+          &:first-child {
+            width: 20%;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+
+        &:nth-child(odd) {
+          td {
+            background-color: #ececec;
+          }
+        }
+
+        &:nth-child(even) {
+          td {
+            background-color: g.$col-offWhite;
+          }
+        }
+
+        th,
+        td {
+          text-align: center;
+          border-top: solid 1px g.$col-white;
+        }
+
+        th {
+          padding: 29px 10px;
+          color: g.$col-white;
+          font-family: g.$ff-baseBold;
+          font-weight: g.$fw-bold;
+          background-color: g.$col-red;
+
+          span {
+            margin-bottom: 8.5px;
+            font-size: 1.4rem;
+            display: block;
+          }
+
+          &.light {
+            background-color: rgba(g.$col-red, .6);
+          }
+        }
+
+        td {
+          padding: 22px 10px;
+          font-family: g.$ff-baseBold;
+          border-left: solid 1px g.$col-white;
+
+          p {
+            &>span {
+              font-family: g.$ff-base;
+
+              &.price {
+                font-family: g.$ff-en;
+                font-size: 2.5rem;
+                font-weight: g.$fw-bold;
+
+                &>span {
+                  font-family: g.$ff-baseBold;
+                  font-size: 1.6rem;
+                }
+
+                &+span {
+                  margin-left: .5em;
+                }
+              }
+            }
+
+            &.text {
+              font-family: g.$ff-base;
+              font-size: 1.4rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include g.mq('tb') {
+    ::-webkit-scrollbar {
+      height: 4px;
+      display: block !important;
+    }
+
+    ::-webkit-scrollbar-track {
+      width: 100%;
+      background-color: #c0c0c0;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: g.$col-black;
+    }
+
+    table {
+      min-width: 1000px;
+
+      thead {
+        tr {
+          th {
+            padding: 19px 5px;
+            font-size: 1.6rem;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+
+          &:nth-child(odd) {
+            td {
+              background-color: #ececec;
+            }
+          }
+
+          &:nth-child(even) {
+            td {
+              background-color: g.$col-offWhite;
+            }
+          }
+
+          th,
+          td {
+            text-align: center;
+            border-top: solid 1px g.$col-white;
+          }
+
+          th {
+            padding: 8px 5px;
+            font-size: 1.4rem;
+
+            span {
+              margin-bottom: 8.5px;
+              font-size: 1.2rem;
+            }
+          }
+
+          td {
+            padding: 8px 5px;
+
+            p {
+              &>span {
+
+                &.price {
+                  font-size: 1.6rem;
+
+                  &>span {
+                    font-size: 1.4rem;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.u__table__scroll {
+  @include g.mq('tb') {
+    padding-bottom: 16px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}

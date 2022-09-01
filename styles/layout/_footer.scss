@@ -1,0 +1,15 @@
+@use "../global/index" as g;
+
+.l__footer {
+  padding: 20px 0;
+  background-color: g.$col-offWhite;
+
+  @include g.mq('tb') {}
+}
+
+.l__footer__copyright {
+  color: g.$fc-gray;
+  font-size: 1.2rem;
+  text-align: center;
+  text-transform: uppercase;
+}

@@ -1,0 +1,131 @@
+//----------------------------------------
+// font-size(vw)
+// 第一引数で基準となる画面幅のフォントサイズ、第二引数で基準となる画面幅を入力
+//----------------------------------------
+@function get_vw($size, $viewport: 1440) {
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw;
+}
+
+@mixin fz_vw($font_size: 10) {
+  font-size: $font_size * 1px;
+  font-size: get_vw($font_size);
+}
+
+
+
+//----------------------------------------
+// mediaquery
+//----------------------------------------
+$breakpoints: (
+  'sp': 'screen and (max-width: 480px)',
+  'tb': 'screen and (max-width: 768px)',
+  'b900': 'screen and (max-width: 900px)',
+  'b960': 'screen and (max-width: 960px), (orientation:landscape)',
+  'pc-xs': 'screen and (max-width: 960px)',
+  'pc-s': 'screen and (max-width: 1069px)',
+  'pc-m': 'screen and (max-width: 1200px)',
+  'pc-l': 'screen and (min-width: 1441px)',
+  ) !default;
+
+@mixin mq($breakpoint: pc-m) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+
+
+// //----------------------------------------
+// // メディアクエリの順番を定義
+// //----------------------------------------
+@include mq('pc-l') {
+  /* 1441px以上 */
+}
+
+@include mq('pc-m') {
+  /* 1200px以下 */
+}
+
+@include mq('pc-s') {
+  /* 1069px以下 */
+}
+
+@include mq('pc-xs') {
+  /* 960px以下 */
+}
+
+@include mq('b960') {
+  /* 960px以下かつ横向き */
+}
+
+@include mq('b900') {
+  /* 900px以下 */
+}
+
+@include mq('tb') {
+  /* 768px以下 */
+}
+
+@include mq('sp') {
+  /* 480px以下 */
+}
+
+
+
+//----------------------------------------
+// ie hack
+//----------------------------------------
+@mixin ie {
+
+  @media screen and (-ms-high-contrast: active),
+  screen and (-ms-high-contrast: none) {
+    @content;
+  }
+}
+
+
+
+//----------------------------------------
+// hover
+//----------------------------------------
+@mixin hoverBase() {
+  // transition: $opacity;
+  transition: opacity 0.4s;
+
+  &:hover {
+    opacity: 0.3;
+  }
+
+  @include mq('tb') {
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+
+//----------------------------------------
+// 文字詰め
+//----------------------------------------
+@mixin shorten() {
+  &::before {
+    width: 0;
+    height: 0;
+    margin-top: calc((1 - 2) * 0.5em
+    );
+  display: block;
+  content: '';
+}
+}
+
+//----------------------------------------
+// clearfix
+//----------------------------------------
+@mixin clearfix() {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}

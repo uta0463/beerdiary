@@ -1,0 +1,123 @@
+@charset 'UTF-8';
+
+//----------------------------------------
+// フォント
+//----------------------------------------
+// font-family
+$ff-base: Gothic MB101 Light, Hiragino Kaku Gothic W3 JIS2004, 'メイリオ', Meiryo, Verdana, 'ＭＳ Ｐゴシック', sans-serif;
+
+// font-size
+$fs-base: 1.6rem;
+
+// font-weight
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-bold: 700;
+$fw-black: 900;
+
+// letter-spacing
+$ls-base: normal;
+
+// line-height
+$lh-base: 1.5;
+$lh-wide: 2;
+
+// font-color
+$fc-base: #000;
+$fc-gray: #bdbdbd;
+$fc-hover: #666;
+
+//----------------------------------------
+// 角丸
+//----------------------------------------
+$radius-base: 4px;
+
+
+
+//----------------------------------------
+// カラー
+//----------------------------------------
+$col-white: #fff;
+$col-offWhite: #f5f5f5;
+$col-black: #000;
+$col-red: #bb0000;
+$col-lightRed: #dd0000;
+$col-blue: #0088cc;
+
+$col-gray: #dcdcdc;
+$col-darkGray: #1e1e1e;
+$col-lightGray: #f0f0f0;
+
+//----------------------------------------
+// シャドー
+//----------------------------------------
+$sdw: 16px 16px 20px rgba(3, 46, 55, 0.2);
+$sdw-s: 4px 4px 12px rgba(3, 46, 55, 0.2);
+
+
+
+//----------------------------------------
+// レイアウト
+//----------------------------------------
+// ベース 幅
+$base-column: 860px;
+
+// スペース
+$base-space: 45px;
+$sp-space: 20px;
+
+// マージン
+$col-base: 8.3334vw; //120px
+$col-half: 4.1667vw; //60px
+
+$col50: 3.47223vw; //50px
+
+
+// -----------------------------------------------------------------
+// easing
+// -----------------------------------------------------------------
+$ease : cubic-bezier(0.25, 0.1, 0.25, 1);
+$linear : cubic-bezier(0, 0, 1, 1);
+$easeIn : cubic-bezier(0.42, 0, 1, 1);
+$easeOut : cubic-bezier(0, 0, 0.58, 1);
+$easeInOut : cubic-bezier(0.42, 0, 0.58, 1);
+
+$easeInSine : cubic-bezier(0.12, 0, 0.39, 0);
+$easeOutSine : cubic-bezier(0.61, 1, 0.88, 1);
+$easeInOutSine : cubic-bezier(0.37, 0, 0.63, 1);
+
+$easeInQuad : cubic-bezier(0.11, 0, 0.5, 0);
+$easeOutQuad : cubic-bezier(0.5, 1, 0.89, 1);
+$easeInOutQuad : cubic-bezier(0.45, 0, 0.55, 1);
+
+$easeInCubic : cubic-bezier(0.32, 0, 0.67, 0);
+$easeOutCubic : cubic-bezier(0.33, 1, 0.68, 1);
+$easeInOutCubic : cubic-bezier(0.65, 0, 0.35, 1);
+
+$easeInQuart : cubic-bezier(0.5, 0, 0.75, 0);
+$easeOutQuart : cubic-bezier(0.25, 1, 0.5, 1);
+$easeInOutQuart : cubic-bezier(0.76, 0, 0.24, 1);
+
+$easeInQuint : cubic-bezier(0.64, 0, 0.78, 0);
+$easeOutQuint : cubic-bezier(0.22, 1, 0.36, 1);
+$easeInOutQuint : cubic-bezier(0.83, 0, 0.17, 1);
+
+$easeInExpo : cubic-bezier(0.7, 0, 0.84, 0);
+$easeOutExpo : cubic-bezier(0.16, 1, 0.3, 1);
+$easeInOutExpo : cubic-bezier(0.87, 0, 0.13, 1);
+
+$easeInCirc : cubic-bezier(0.55, 0, 1, 0.45);
+$easeOutCirc : cubic-bezier(0, 0.55, 0.45, 1);
+$easeInOutCirc : cubic-bezier(0.85, 0, 0.15, 1);
+
+$easeInBack : cubic-bezier(0.36, 0, 0.66, -0.56);
+$easeOutBack : cubic-bezier(0.34, 1.56, 0.64, 1);
+$easeInOutBack : cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+
+
+//----------------------------------------
+// ホバー
+//----------------------------------------
+$opacity: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+$hov-color: color 0.3s;

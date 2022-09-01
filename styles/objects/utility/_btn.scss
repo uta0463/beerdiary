@@ -1,0 +1,31 @@
+@use "../../global/index" as g;
+
+.u__btn {
+  text-align: center;
+
+  &>* {
+    padding: 16px 40px;
+    font-weight: g.$fw-bold;
+    border: solid 2px g.$col-black;
+    border-radius: g.$radius-base;
+    display: inline-block;
+    vertical-align: middle;
+    transition: g.$opacity;
+
+    //hover
+    &:hover {
+      opacity: .6;
+    }
+  }
+
+  @include g.mq('tb') {
+    &>* {
+      padding: 15px 40px;
+      font-size: 1.4rem;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

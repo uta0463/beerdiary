@@ -1,0 +1,23 @@
+@use "../../global/index" as g;
+
+.u__note {
+  position: relative;
+  margin-top: 17px;
+  padding-left: 16px;
+  font-size: 1.4rem;
+  line-height: g.$lh-wide;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: g.$col-red;
+    content: "※";
+  }
+
+  @include g.mq('tb') {
+    margin-top: 14px;
+    padding-left: 13px;
+    font-size: 1.2rem;
+  }
+}
