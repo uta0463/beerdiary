@@ -31,23 +31,23 @@ export default function Home({ posts, tags }: Props) {
     });
   };
 
-  console.log(tags)
+  // console.log(tags)
 
   return (
     <>
       <Head>
         <title>ビールの情報配信【BEER DIARY】</title>
         <meta name="description" content="【BEER DIARY】ビールに関する情報を配信します。" />
-        <link rel="canonical" href="https://www.beerdiary.jp/" />
+        <link rel="canonical" href="https://www.beerdiary.jp" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="ビールの情報配信【BEER DIARY】" />
         <meta property="og:description" content="【BEER DIARY】ビールに関する情報を配信します。" />
-        <meta property="og:url" content="https://www.beerdiary.jp/" />
-        <meta property="og:image" content="https://www.beerdiary.jp/ogp.jpg" />
+        <meta property="og:url" content="https://www.beerdiary.jp" />
+        <meta property="og:image" content="https://www.beerdiary.jp/images/ogp.jpg" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="ビールの情報配信【BEER DIARY】" />
         <meta name="twitter:description" content="BEER DIARY】ビールに関する情報を配信します。" />
-        <meta name="twitter:image" content="https://www.beerdiary.jp/ogp.jpg" />
+        <meta name="twitter:image" content="https://www.beerdiary.jp/images/ogp.jpg" />
       </Head>
 
       <section className={'p__page__posts'}>

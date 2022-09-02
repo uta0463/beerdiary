@@ -27,11 +27,11 @@ export default function Article({ posts, tags }: Props) {
         <meta property="og:title" content={posts.title} />
         <meta property="og:description" content={posts.description} />
         <meta property="og:url" content={'https://www.beerdiary.jp' + router.asPath} />
-        <meta property="og:image" content="https://www.beerdiary.jp/ogp.jpg" />
+        <meta property="og:image" content="https://www.beerdiary.jp/images/ogp.jpg" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={posts.title} />
         <meta name="twitter:description" content={posts.description} />
-        <meta name="twitter:image" content="https://www.beerdiary.jp/ogp.jpg" />
+        <meta name="twitter:image" content="https://www.beerdiary.jp/images/ogp.jpg" />
       </Head>
 
       <section className={`p__page__container`}>
