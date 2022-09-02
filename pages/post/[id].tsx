@@ -8,14 +8,23 @@ import { client } from '../../libs/client';
 type Props = {
   posts: Blog;
   tags: Tag[];
+  prevEntry: Blog;
+  nextEntry: Blog;
 };
 
-export default function Article({ posts, tags }: Props) {
+export default function Article({ posts, tags, prevEntry, nextEntry }: Props) {
   const router = useRouter();
   const postDate = new Date(posts.updatedAt);
   const year = postDate.getFullYear();
   const month = postDate.getMonth() + 1;
   const day = postDate.getDate();
+
+  console.log(prevEntry.title)
+  if (prevEntry.title) {
+    console.log('ある')
+  } else {
+    console.log('ない')
+  }
 
   return (
     <>
@@ -58,6 +67,30 @@ export default function Article({ posts, tags }: Props) {
                   __html: `${posts.content}`,
                 }}
               />
+            </div>
+          </div>
+
+          <div className={`p__page__pager`}>
+            <div className={`u__pager ${prevEntry.title === undefined ? 'noneprev' : ''}`}>
+
+              {
+                prevEntry.title &&
+                <div className={`u__pager__tex`}>
+                  <Link href={`/post/${prevEntry.id}`} passHref>
+                    <a className={`u__pager__link u__pager__link--prev`}><span>{prevEntry.title}</span></a>
+                  </Link>
+                </div>
+              }
+
+              {
+                nextEntry.title &&
+                <div className={`u__pager__tex`}>
+                  <Link href={`/post/${nextEntry.id}`} passHref>
+                    <a className={`u__pager__link u__pager__link--next`}><span>{nextEntry.title}</span></a>
+                  </Link>
+                </div>
+              }
+
             </div>
           </div>
 
@@ -122,10 +155,33 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     endpoint: 'categories',
   });
 
+  const prev = await client.get({
+    endpoint: 'blogs',
+    queries: {
+      limit: 1,
+      orders: '-publishedAt',
+      filters: `publishedAt[less_than]${data.publishedAt}`
+    }
+  });
+
+  const next = await client.get({
+    endpoint: 'blogs',
+    queries: {
+      limit: 1,
+      orders: 'publishedAt',
+      filters: `publishedAt[greater_than]${data.publishedAt}`
+    }
+  });
+
+  const prevEntry = prev.contents[0] || {};
+  const nextEntry = next.contents[0] || {};
+
   return {
     props: {
       posts: data,
       tags: tagData.contents,
+      prevEntry,
+      nextEntry
     },
   };
 };

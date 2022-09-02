@@ -63,11 +63,19 @@
   }
 }
 
+.p__page__pager {
+  margin-top: 100px;
+
+  @include g.mq('tb') {
+    margin-top: 60px;
+  }
+}
+
 .p__page__btn {
   margin-top: 60px;
 
   @include g.mq('tb') {
-    margin-top: 50px;
+    margin-top: 40px;
   }
 }
 
@@ -105,22 +113,29 @@
       margin-top: 60px;
     }
 
-    &+h3,
+    &+h3 {
+      margin-top: 40px;
+    }
+
     &+h4,
     &+ul,
-    &+img {
+    &+img,
+    &+pre {
       margin-top: 30px;
     }
   }
 
   h2 {
-    font-size: 2rem;
+    padding-left: 15px;
+    font-size: 2.2rem;
+    border-left: solid 3px g.$col-blue;
 
     &+p,
     &+h3,
     &+h4,
     &+ul,
-    &+img {
+    &+img,
+    &+pre {
       margin-top: 30px;
     }
   }
@@ -139,6 +154,10 @@
     &+img {
       margin-top: 30px;
     }
+
+    &+pre {
+      margin-top: 15px;
+    }
   }
 
   h4 {
@@ -152,7 +171,8 @@
     &+h3,
     &+h4,
     &+ul,
-    &+img {
+    &+img,
+    &+pre {
       margin-top: 30px;
     }
   }
@@ -187,7 +207,30 @@
     &+h3,
     &+h4,
     &+ul,
-    &+img {
+    &+img,
+    &+pre {
+      margin-top: 30px;
+    }
+  }
+
+  pre {
+    padding: 15px;
+    background-color: g.$col-offWhite;
+    border-radius: g.$radius-base;
+
+    &+h2 {
+      margin-top: 60px;
+    }
+
+    &+p {
+      margin-top: 15px;
+    }
+
+    &+h3,
+    &+h4,
+    &+ul,
+    &+img,
+    &+pre {
       margin-top: 30px;
     }
   }
@@ -198,7 +241,7 @@
       line-height: 1.8;
 
       &+h2 {
-        margin-top: 40px;
+        margin-top: 50px;
       }
     }
 
@@ -213,7 +256,8 @@
       &+h3,
       &+h4,
       &+ul,
-      &+img {
+      &+img,
+      &+pre {
         margin-top: 20px;
       }
     }
@@ -232,6 +276,10 @@
       &+img {
         margin-top: 20px;
       }
+
+      &+pre {
+        margin-top: 10px;
+      }
     }
 
     h4 {
@@ -245,7 +293,8 @@
       &+h3,
       &+h4,
       &+ul,
-      &+img {
+      &+img,
+      &+pre {
         margin-top: 20px;
       }
     }
@@ -260,7 +309,28 @@
       &+h3,
       &+h4,
       &+ul,
-      &+img {
+      &+img,
+      &+pre {
+        margin-top: 20px;
+      }
+    }
+
+    pre {
+      overflow: auto;
+
+      &+h2 {
+        margin-top: 40px;
+      }
+
+      &+p {
+        margin-top: 10px;
+      }
+
+      &+h3,
+      &+h4,
+      &+ul,
+      &+img,
+      &+pre {
         margin-top: 20px;
       }
     }

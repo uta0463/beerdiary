@@ -1,29 +1,3 @@
-// html,
-// body {
-//   padding: 0;
-//   margin: 0;
-//   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-//     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-// }
-
-// a {
-//   color: inherit;
-//   text-decoration: none;
-// }
-
-// * {
-//   box-sizing: border-box;
-// }
-
-
-// .l__header {
-
-//   .u__inner {
-//     max-width: 860px;
-//     margin: 0 auto;
-//   }
-// }
-
 @charset "UTF-8";
 
 /*** RESET ***/
@@ -74,6 +48,9 @@
 
 /* pagination */
 @forward 'objects/utility/pagination';
+
+/* pager */
+@forward 'objects/utility/pager';
 
 /* animation */
 @forward 'objects/utility/animation';

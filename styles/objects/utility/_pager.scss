@@ -1,0 +1,64 @@
+@use "../../global/index" as g;
+
+.u__pager {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  &.noneprev {
+    justify-content: flex-end;
+
+    .u__pager__tex {
+      .u__pager__link--next {
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
+.u__pager__tex {
+  width: calc(50% - 30px);
+
+  @include g.mq('tb') {
+    width: calc(50% - 10px);
+  }
+}
+
+.u__pager__link {
+  width: 100%;
+  color: g.$col-blue;
+  font-size: 1.4rem;
+  display: flex;
+  overflow: hidden;
+  transition: g.$opacity;
+
+  span {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    overflow: hidden;
+  }
+
+  //prev
+  &--prev {
+    &::before {
+      margin-right: .2em;
+      content: "«";
+    }
+  }
+
+  //next
+  &--next {
+    text-align: right;
+
+    &::after {
+      margin-left: .2em;
+      content: "»";
+    }
+  }
+
+  //hover
+  &:hover {
+    opacity: .6;
+  }
+}
