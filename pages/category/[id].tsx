@@ -53,7 +53,7 @@ export default function Category({ posts, tags }: Props) {
           <div className={`c__card__set`}>
 
             {posts.slice(offset, offset + perPage).map(post => {
-              let postDate = new Date(post.updatedAt);
+              let postDate = new Date(post.publishedAt);
               let year = postDate.getFullYear();
               let month = postDate.getMonth() + 1;
               let day = postDate.getDate();
@@ -86,16 +86,22 @@ export default function Category({ posts, tags }: Props) {
 
           </div>
 
-          <div className={'p__page__posts__btn'}>
-            <ReactPaginate
-              previousLabel={"<"}  // 前のページボタン
-              nextLabel={">"}    // 次のページボタン
-              pageCount={Math.ceil(posts.length / perPage)}   // ページ総数
-              onPageChange={handlePageChange}   // クリック時のfunction
-              containerClassName={"u__pagination"}   // ページネーションであるulに付くクラス名
-              activeClassName={"active"}   // アクティブなページのliに着くクラス名
-            />
-          </div>
+          {(() => {
+            if (perPage < posts.length) {
+              return (
+                <div className={'p__page__posts__btn'}>
+                  <ReactPaginate
+                    previousLabel={"<"}  // 前のページボタン
+                    nextLabel={">"}    // 次のページボタン
+                    pageCount={Math.ceil(posts.length / perPage)}   // ページ総数
+                    onPageChange={handlePageChange}   // クリック時のfunction
+                    containerClassName={"u__pagination"}   // ページネーションであるulに付くクラス名
+                    activeClassName={"active"}   // アクティブなページのliに着くクラス名
+                  />
+                </div>
+              )
+            }
+          })()}
 
         </div>
       </section>

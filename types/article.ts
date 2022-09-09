@@ -13,6 +13,7 @@ export type Blog = {
     width: number
   }
   category: {
+    id: string
     name: string
   }
 }

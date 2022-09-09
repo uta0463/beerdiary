@@ -14,17 +14,10 @@ type Props = {
 
 export default function Article({ posts, tags, prevEntry, nextEntry }: Props) {
   const router = useRouter();
-  const postDate = new Date(posts.updatedAt);
+  const postDate = new Date(posts.publishedAt);
   const year = postDate.getFullYear();
   const month = postDate.getMonth() + 1;
   const day = postDate.getDate();
-
-  console.log(prevEntry.title)
-  if (prevEntry.title) {
-    console.log('ある')
-  } else {
-    console.log('ない')
-  }
 
   return (
     <>
@@ -150,6 +143,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     endpoint: 'blogs',
     contentId: idExceptArray,
   });
+  let prevFilter;
 
   const tagData = await client.get({
     endpoint: 'categories',

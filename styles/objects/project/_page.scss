@@ -39,7 +39,11 @@
 }
 
 .p__page__posts {
-  padding: 80px 0;
+  padding: 80px 0 20px;
+
+  &--dev {
+    padding-top: 20px;
+  }
 
   @include g.mq('tb') {
     padding: 50px 0;
@@ -89,7 +93,7 @@
 }
 
 .p__page__tags__head {
-  margin-bottom: 35px;
+  margin-bottom: 45px;
 
   @include g.mq('tb') {
     margin-bottom: 24.5px;
