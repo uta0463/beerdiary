@@ -7,11 +7,31 @@ import { client } from '../libs/client';
 import type { Blog, Tag } from '../types/article';
 import ReactPaginate from "react-paginate";
 import styles from '../styles/Home.module.scss';
+import Seo from './components/Utils/Seo';
 
 type Props = {
   posts: Array<Blog>;
-  tags: Array<Tag>
+  tags: Array<Tag>;
 };
+
+
+const generateJsonLd = (posts: Array<Blog>) => {
+  const jsonLd = {
+    '@context': 'http://schema.org',
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "name": "HOME",
+          "@id": "https://www.beerdiary.jp"
+        }
+      }
+    ],
+  }
+  return JSON.stringify(jsonLd)
+}
 
 
 export default function Home({ posts, tags }: Props) {
@@ -69,6 +89,9 @@ export default function Home({ posts, tags }: Props) {
         <meta name="twitter:title" content="ビールの情報配信【BEER DIARY】" />
         <meta name="twitter:description" content="BEER DIARY】ビールに関する情報を配信します。" />
         <meta name="twitter:image" content="https://www.beerdiary.jp/images/ogp.jpg" />
+        <Seo
+          jsonLd={generateJsonLd(posts)}
+        />
       </Head>
 
       <section className={'p__page__posts'}>

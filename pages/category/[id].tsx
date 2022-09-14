@@ -6,12 +6,41 @@ import Link from 'next/link';
 import { client } from '../../libs/client';
 import type { Blog, Tag } from '../../types/article';
 import ReactPaginate from "react-paginate";
+import Seo from '../components/Utils/Seo';
 
 type Props = {
   posts: Array<Blog>;
   tags: Tag[];
 };
 
+const generateJsonLd = (posts: Array<Blog>) => {
+  const name = posts[0].category.name;
+  const id = posts[0].category.id;
+
+  const jsonLd = {
+    '@context': 'http://schema.org',
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "name": "HOME",
+          "@id": "https://www.beerdiary.jp"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "name": name,
+          "@id": "https://www.beerdiary.jp/category/" + id
+        }
+      }
+    ],
+  }
+  return JSON.stringify(jsonLd)
+}
 
 export default function Category({ posts, tags }: Props) {
   const router = useRouter();
@@ -45,6 +74,9 @@ export default function Category({ posts, tags }: Props) {
         <meta name="twitter:title" content={posts[0].category.name + `| ビールの情報配信【BEER DIARY】`} />
         <meta name="twitter:description" content={posts[0].category.name + `の一覧ページ。` + posts[0].category.name + `に関する情報を配信しております。`} />
         <meta name="twitter:image" content="https://xxxx.jp/ogp.jpg" />
+        <Seo
+          jsonLd={generateJsonLd(posts)}
+        />
       </Head>
 
       <section className={'p__page__posts'}>
@@ -102,6 +134,17 @@ export default function Category({ posts, tags }: Props) {
               )
             }
           })()}
+
+          <div className={`u__breadcrumb`}>
+            <ol>
+              <li>
+                <Link href={`/`} passHref>
+                  <a>Home</a>
+                </Link>
+              </li>
+              <li>{posts[0].category.name}</li>
+            </ol>
+          </div>
 
         </div>
       </section>

@@ -1,9 +1,10 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
 import type { Blog, Tag } from '../../types/article';
 import { client } from '../../libs/client';
+import Seo from '../components/Utils/Seo';
 
 type Props = {
   posts: Blog;
@@ -11,6 +12,35 @@ type Props = {
   prevEntry: Blog;
   nextEntry: Blog;
 };
+
+const generateJsonLd = (posts: Blog) => {
+  const name = posts.title;
+  const id = posts.id;
+
+  const jsonLd = {
+    '@context': 'http://schema.org',
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "name": "HOME",
+          "@id": "https://www.beerdiary.jp"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "name": name,
+          "@id": "https://www.beerdiary.jp/post/" + id
+        }
+      }
+    ],
+  }
+  return JSON.stringify(jsonLd)
+}
 
 export default function Article({ posts, tags, prevEntry, nextEntry }: Props) {
   const router = useRouter();
@@ -34,9 +64,12 @@ export default function Article({ posts, tags, prevEntry, nextEntry }: Props) {
         <meta name="twitter:title" content={posts.title} />
         <meta name="twitter:description" content={posts.description} />
         <meta name="twitter:image" content="https://www.beerdiary.jp/images/ogp.jpg" />
+        <Seo
+          jsonLd={generateJsonLd(posts)}
+        />
       </Head>
 
-      <section className={`p__page__container`}>
+      <section className={`p__page__container p__page__container--detail`}>
         <div className={`u__inner`}>
 
           <div className={`p__page__contents`}>
@@ -93,6 +126,17 @@ export default function Article({ posts, tags, prevEntry, nextEntry }: Props) {
                 <a>TOPに戻る</a>
               </Link>
             </div>
+          </div>
+
+          <div className={`u__breadcrumb`}>
+            <ol>
+              <li>
+                <Link href={`/`} passHref>
+                  <a>Home</a>
+                </Link>
+              </li>
+              <li>{posts.title}</li>
+            </ol>
           </div>
 
         </div>

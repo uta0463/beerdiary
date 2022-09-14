@@ -1,0 +1,54 @@
+@use "../../global/index" as g;
+
+.u__breadcrumb {
+  padding-top: 80px;
+
+  ol {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    li {
+      margin-bottom: 5px;
+      color: g.$fc-gray;
+      font-size: 1.2rem;
+      line-height: 1.2;
+      text-transform: uppercase;
+
+      &::after {
+        margin: 0 .5em;
+        content: ">";
+      }
+
+      &:last-child {
+        &::after {
+          content: none;
+        }
+      }
+
+      a {
+        transition: g.$opacity;
+
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+
+  @include g.mq('tb') {
+    padding-top: 50px;
+
+    ol {
+      li {
+
+        a {
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
