@@ -64,16 +64,16 @@ export default function Category({ posts, tags }: Props) {
       <Head>
         <title>{posts[0].category.name} | ビールの情報配信【BEER DIARY】</title>
         <meta name="description" content={posts[0].category.name + `の一覧ページ。` + posts[0].category.name + `に関する情報を配信しております。`} />
-        <link rel="canonical" href={'https://xxxx.jp' + router.asPath} />
+        <link rel="canonical" href={'https://www.beerdiary.jp' + router.asPath} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={posts[0].category.name + `| ビールの情報配信【BEER DIARY】`} />
         <meta property="og:description" content={posts[0].category.name + `の一覧ページ。` + posts[0].category.name + `に関する情報を配信しております。`} />
-        <meta property="og:url" content={'https://xxxx.jp' + router.asPath} />
-        <meta property="og:image" content="https://xxxx.jp/ogp.jpg" />
+        <meta property="og:url" content={'https://www.beerdiary.jp' + router.asPath} />
+        <meta property="og:image" content="https://www.beerdiary.jp/images/ogp.jpg" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={posts[0].category.name + `| ビールの情報配信【BEER DIARY】`} />
         <meta name="twitter:description" content={posts[0].category.name + `の一覧ページ。` + posts[0].category.name + `に関する情報を配信しております。`} />
-        <meta name="twitter:image" content="https://xxxx.jp/ogp.jpg" />
+        <meta name="twitter:image" content="https://www.beerdiary.jp/images/ogp.jpg" />
         <Seo
           jsonLd={generateJsonLd(posts)}
         />
