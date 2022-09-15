@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Image from 'next/image'
+// import Image from 'next/image'
 import { ReactNode } from 'react';
 
 type Props = {
@@ -14,7 +14,7 @@ const Header = ({ children }: Props) => {
         <h1 className={`l__header__logo`}>
           <Link href="/">
             <a>
-              <Image src="/images/logo.png" width={24} height={35} alt="Beer Diary" />
+              <img src="/images/logo.png" width={24} height={35} alt="Beer Diary" />
               <span>Beer Diary</span>
             </a>
           </Link>
