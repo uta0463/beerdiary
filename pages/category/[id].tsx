@@ -198,6 +198,7 @@ export const getStaticProps = async (context: any) => {
 
   const tagData = await client.get({
     endpoint: 'categories',
+    queries: { limit: 9999 }
   });
 
   return {
