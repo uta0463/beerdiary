@@ -53,6 +53,10 @@
     padding-top: 20px;
   }
 
+  &--news {
+    padding-top: 20px;
+  }
+
   @include g.mq('tb') {
     padding: 50px 0;
 
