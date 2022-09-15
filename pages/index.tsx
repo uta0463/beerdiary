@@ -185,11 +185,6 @@ export default function Home({ posts, tags }: Props) {
                           <time className="u__date" dateTime={year + '-' + month + '-' + day}>{year + '.' + month + '.' + day}</time>
                         </div>
                         <h2 className={`c__card__title`}>{post.title}</h2>
-                        <div className={`c__card__tag`}>
-                          <div className={`u__tag`}>
-                            <span className={`u__tag__item`}>{post.category.name}</span>
-                          </div>
-                        </div>
                       </div>
                     </a>
                   </Link>
