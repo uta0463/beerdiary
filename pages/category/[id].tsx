@@ -135,6 +135,14 @@ export default function Category({ posts, tags }: Props) {
             }
           })()}
 
+          <div className={`p__page__btn`}>
+            <div className={`u__btn`}>
+              <Link href="/">
+                <a>TOPに戻る</a>
+              </Link>
+            </div>
+          </div>
+
           <div className={`u__breadcrumb`}>
             <ol>
               <li>
