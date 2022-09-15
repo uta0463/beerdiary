@@ -246,7 +246,7 @@ export default function Home({ posts, tags }: Props) {
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const data = await client.get({ endpoint: 'blogs' });
+  const data = await client.get({ endpoint: 'blogs', queries: { limit: 9999 } });
   const category = await client.get({ endpoint: 'categories' });
 
   return {
