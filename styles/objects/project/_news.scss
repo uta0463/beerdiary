@@ -1,0 +1,142 @@
+@use "../../global/index" as g;
+
+.p__news__root {
+  padding-bottom: 80px;
+
+  @include g.mq('tb') {
+    padding-bottom: 20px;
+  }
+}
+
+.p__news__root__head {
+  margin-bottom: 30px;
+
+  @include g.mq('tb') {
+    margin-bottom: 20px;
+  }
+}
+
+.p__news__root__body {
+  border-top: solid 1px g.$col-gray;
+}
+
+.p__news__title {
+  font-size: 4.2rem;
+  font-weight: g.$fw-black;
+  line-height: 1.4;
+  text-transform: uppercase;
+
+  @include g.mq('tb') {
+    font-size: 2.8rem;
+  }
+}
+
+.p__news {
+  border-bottom: solid 1px g.$col-gray;
+}
+
+.p__news__wrap {
+  padding: 3.5vh 0;
+  display: flex;
+  align-items: center;
+
+  @include g.mq('tb') {
+    padding: 20px 0;
+    display: block;
+  }
+}
+
+.p__news__head {
+  width: 220px;
+
+  @include g.mq('tb') {
+    width: 100%;
+  }
+}
+
+.p__news__body {
+  width: calc(100% - 240px);
+  display: flex;
+  align-items: center;
+
+  @include g.mq('tb') {
+    width: 100%;
+    padding-top: 15px;
+  }
+}
+
+.p__news__img {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    padding-top: 70.9090%;
+    display: block;
+    content: "";
+  }
+
+  @include g.mq('tb') {
+    &::before {
+      padding-top: 56.25%;
+    }
+  }
+}
+
+.p__news__img__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  transition: transform .3s g.$easeOutQuint;
+}
+
+.p__news__date {
+  width: 130px;
+  padding-left: 30px;
+
+  .u__date {
+    font-size: 1.3rem;
+    font-weight: g.$fw-black;
+    line-height: 1;
+    text-align: center;
+    display: inline-block;
+    text-transform: uppercase;
+
+    span {
+      &.u__date__day {
+        margin-bottom: 4px;
+        font-size: 3.6rem;
+      }
+    }
+  }
+
+  @include g.mq('tb') {
+    width: 90px;
+    padding-left: 0;
+
+    .u__date {
+      font-size: 1.2rem;
+
+      span {
+        &.u__date__day {
+          font-size: 2.8rem;
+        }
+      }
+    }
+  }
+}
+
+.p__news__h {
+  width: calc(100% - 130px);
+  font-size: 1.6rem;
+  font-weight: g.$fw-regular;
+
+  @include g.mq('tb') {
+    width: calc(100% - 90px);
+    font-size: 1.5rem;
+  }
+}

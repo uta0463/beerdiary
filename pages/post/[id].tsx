@@ -174,6 +174,7 @@ export default function Article({ posts, tags, prevEntry, nextEntry }: Props) {
 export const getStaticPaths: GetStaticPaths = async () => {
   const data = await client.get({
     endpoint: 'blogs',
+    queries: { limit: 9999 }
   });
   const paths = data.contents.map((content: any) => `/post/${content.id}`);
 

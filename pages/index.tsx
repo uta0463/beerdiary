@@ -60,17 +60,20 @@ export default function Home({ posts, tags }: Props) {
     setOffsetDev(data.selected * perPage)   // 表示する記事の開始位置を変更
   };
 
-  // "ブログ開発"以外のカテゴリーの記事のみフィルタリング
+  // "クラフトビール"のカテゴリーの記事のみフィルタリング
   const filterBeerPosts = posts.filter((output, index) => {
-    // console.log(output.category.id)
-    return output.category.id != 'dev'
+    return output.category.id === 'craftbeer'
   });
   // console.log(filterBeerPosts)
 
   // "ブログ開発"カテゴリーの記事のみフィルタリング
   const filterDevPosts = posts.filter((output, index) => {
-    // console.log(output.category.id)
     return output.category.id === 'dev'
+  });
+
+  // "お知らせ"カテゴリーの記事のみフィルタリング
+  const filterNewsPosts = posts.filter((output, index) => {
+    return output.category.id === 'news'
   });
 
 
@@ -212,6 +215,52 @@ export default function Home({ posts, tags }: Props) {
               )
             }
           })()}
+
+        </div>
+      </section>
+
+
+      <section className={'p__page__posts p__page__posts--news'}>
+        <div className={`u__inner`}>
+
+          <div className={`p__news__root`}>
+            <div className={`p__news__root__head`}>
+              <h2 className={`p__news__title`}>News</h2>
+            </div>
+            <div className={`p__news__root__body`}>
+
+              {filterNewsPosts.slice(0, 3).map(post => {
+                let postDate = new Date(post.publishedAt);
+                let year = postDate.getFullYear();
+                let dateMonth = postDate.getMonth() + 1;
+                let month = postDate.getMonth();
+                let day = postDate.getDate();
+
+                const month_english_list = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                const month_english = month_english_list[month];
+
+                return (
+                  <article key={post.id} className="p__news">
+                    <Link href={`/post/${post.id}`} passHref>
+                      <a className="p__news__wrap">
+                        <div className={`p__news__head`}>
+                          <div className={`p__news__img`}>
+                            <div className={`p__news__img__item`} style={{ backgroundImage: `url(${post.eyecatch.url})` }}></div>
+                          </div>
+                        </div>
+                        <div className={`p__news__body`}>
+                          <div className={`p__news__date`}>
+                            <time className="u__date" dateTime={year + '-' + dateMonth + '-' + day}><span className={`u__date__day`}>{day}</span>{month_english + '.' + year}</time>
+                          </div>
+                          <h2 className={`p__news__h`}>{post.title}</h2>
+                        </div>
+                      </a>
+                    </Link>
+                  </article>
+                )
+              })}
+            </div>
+          </div>
 
         </div>
       </section>

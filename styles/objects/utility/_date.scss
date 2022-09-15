@@ -4,6 +4,12 @@
   color: g.$fc-gray;
   font-size: 1.5rem;
 
+  span {
+    &.u__date__day {
+      display: block;
+    }
+  }
+
   @include g.mq('tb') {
     font-size: 1.3rem;
   }

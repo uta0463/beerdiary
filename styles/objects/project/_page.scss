@@ -32,7 +32,7 @@
   margin-bottom: 20px;
 
   @include g.mq('tb') {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 }
 
@@ -55,6 +55,14 @@
 
   @include g.mq('tb') {
     padding: 50px 0;
+
+    &--dev {
+      padding-top: 20px;
+    }
+
+    &--news {
+      padding-top: 20px;
+    }
   }
 }
 
