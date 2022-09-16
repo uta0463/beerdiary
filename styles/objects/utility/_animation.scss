@@ -1,3 +1,12 @@
 @use "../../global/index" as g;
 
 .u__animation {}
+
+.u__animation__fadeIn {
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &.is-slideIn {
+    opacity: 1;
+  }
+}

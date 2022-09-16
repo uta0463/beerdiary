@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from "next/router";
 import { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
@@ -7,6 +7,7 @@ import { client } from '../../libs/client';
 import type { Blog, Tag } from '../../types/article';
 import ReactPaginate from "react-paginate";
 import Seo from '../components/Utils/Seo';
+import ScrollFadeIn from '../components/Utils/ScrollFadeIn';
 
 type Props = {
   posts: Array<Blog>;
@@ -44,6 +45,12 @@ const generateJsonLd = (posts: Array<Blog>) => {
 
 export default function Category({ posts, tags }: Props) {
   const router = useRouter();
+
+  // スクロールアニメーション
+  useEffect(() => {
+    ScrollFadeIn();
+  }, []);
+
   // ページネーション処理
   const [offset, setOffset] = useState(0);
   const perPage = 12;
@@ -90,7 +97,7 @@ export default function Category({ posts, tags }: Props) {
               let month = postDate.getMonth() + 1;
               let day = postDate.getDate();
               return (
-                <article key={post.id} className="c__card">
+                <article key={post.id} className={`c__card u__animation__fadeIn`}>
                   <Link href={`/post/${post.id}`} passHref>
                     <a className="c__card__wrap">
                       <div className={`c__card__head`}>
